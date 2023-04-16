@@ -10,10 +10,15 @@ import androidx.lifecycle.viewModelScope
 import com.squareup.workflow1.ui.ViewRegistry
 import com.squareup.workflow1.ui.WorkflowLayout
 import com.squareup.workflow1.ui.WorkflowUiExperimentalApi
+import com.squareup.workflow1.ui.backstack.BackStackContainer
 import com.squareup.workflow1.ui.renderWorkflowIn
 import kotlinx.coroutines.flow.StateFlow
 
-private val viewRegistry = ViewRegistry(WelcomeLayoutRunner)
+private val viewRegistry = ViewRegistry(
+  BackStackContainer,
+  WelcomeLayoutRunner,
+  TodoListLayoutRunner
+)
 
 class TutorialActivity : AppCompatActivity() {
 
@@ -28,9 +33,9 @@ class TutorialActivity : AppCompatActivity() {
 }
 
 class TutorialViewModel(savedState: SavedStateHandle) : ViewModel() {
-  val renderings: StateFlow<WelcomeScreen> by lazy {
+  val renderings: StateFlow<Any> by lazy {
     renderWorkflowIn(
-      workflow = WelcomeWorkflow,
+      workflow = RootWorkflow,
       scope = viewModelScope,
       savedStateHandle = savedState
     )

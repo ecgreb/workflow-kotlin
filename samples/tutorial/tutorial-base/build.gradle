@@ -34,6 +34,7 @@ dependencies {
   implementation deps.appcompat
   implementation deps.kotlin.stdlib
   implementation deps.material
+  implementation deps.workflow.container_android
   implementation deps.workflow.core_android
   implementation deps.activityktx
   implementation deps.viewmodelktx

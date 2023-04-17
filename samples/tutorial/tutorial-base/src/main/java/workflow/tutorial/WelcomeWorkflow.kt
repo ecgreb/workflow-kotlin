@@ -45,4 +45,3 @@ object WelcomeWorkflow : StatefulWorkflow<Unit, State, LoggedIn, WelcomeScreen>(
     TODO("Save state")
   }
 }
-

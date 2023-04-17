@@ -17,7 +17,8 @@ import kotlinx.coroutines.flow.StateFlow
 private val viewRegistry = ViewRegistry(
   BackStackContainer,
   WelcomeLayoutRunner,
-  TodoListLayoutRunner
+  TodoListLayoutRunner,
+  TodoEditLayoutRunner
 )
 
 class TutorialActivity : AppCompatActivity() {

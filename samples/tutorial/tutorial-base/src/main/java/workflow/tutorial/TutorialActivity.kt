@@ -25,10 +25,10 @@ class TutorialActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    val model: TutorialViewModel by viewModels()
+    val tutorialViewModel: TutorialViewModel by viewModels()
 
     setContentView(
-      WorkflowLayout(this).apply { start(model.renderings, viewRegistry) }
+      WorkflowLayout(this).apply { start(tutorialViewModel.renderings, viewRegistry) }
     )
   }
 }

@@ -1,4 +1,3 @@
-@file:OptIn(WorkflowUiExperimentalApi::class)
 package workflow.tutorial
 
 import android.os.Bundle
@@ -14,6 +13,7 @@ import com.squareup.workflow1.ui.backstack.BackStackContainer
 import com.squareup.workflow1.ui.renderWorkflowIn
 import kotlinx.coroutines.flow.StateFlow
 
+@OptIn(WorkflowUiExperimentalApi::class)
 private val viewRegistry = ViewRegistry(
   BackStackContainer,
   WelcomeLayoutRunner,
@@ -23,6 +23,7 @@ private val viewRegistry = ViewRegistry(
 
 class TutorialActivity : AppCompatActivity() {
 
+  @OptIn(WorkflowUiExperimentalApi::class)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     val tutorialViewModel: TutorialViewModel by viewModels()
@@ -34,7 +35,7 @@ class TutorialActivity : AppCompatActivity() {
 }
 
 class TutorialViewModel(savedState: SavedStateHandle) : ViewModel() {
-  val renderings: StateFlow<Any> by lazy {
+  @OptIn(WorkflowUiExperimentalApi::class) val renderings: StateFlow<Any> by lazy {
     renderWorkflowIn(
       workflow = RootWorkflow,
       scope = viewModelScope,
